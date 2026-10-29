@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="StudyBuddy helps students organize assignments and deadlines.">
+  <title>StudyBuddy | Student Planner</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="StudyBuddy home">
+      <span class="brand-icon">✦</span> StudyBuddy
+    </a>
+    <span class="top-label">YOUR PERSONAL STUDY SPACE</span>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <div>
+        <p class="eyebrow">YOUR STUDENT DASHBOARD</p>
+        <h1>Make room for <span>success.</span></h1>
+        <p class="subtitle">Organize your assignments, stay on track, and celebrate your progress.</p>
+      </div>
+      <div class="welcome-icon" aria-hidden="true">📚</div>
+    </section>
+
+    <section class="stats" aria-label="Assignment statistics">
+      <article class="stat-card">
+        <span class="stat-icon blue">▤</span>
+        <p>Total assignments</p>
+        <strong id="totalCount">0</strong>
+      </article>
+      <article class="stat-card">
+        <span class="stat-icon purple">◷</span>
+        <p>Pending</p>
+        <strong id="pendingCount">0</strong>
+      </article>
+      <article class="stat-card">
+        <span class="stat-icon green">✓</span>
+        <p>Completed</p>
+        <strong id="completedCount">0</strong>
+      </article>
+      <article class="stat-card">
+        <span class="stat-icon red">!</span>
+        <p>Overdue</p>
+        <strong id="overdueCount">0</strong>
+      </article>
+    </section>
+
+    <section class="content-grid">
+      <section class="panel form-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">GET ORGANIZED</p>
+            <h2>Add an assignment</h2>
+          </div>
+          <span class="heading-icon">＋</span>
+        </div>
+
+        <form id="assignmentForm">
+          <label for="title">Assignment title</label>
+          <input id="title" name="title" type="text"
+            placeholder="e.g. Java programming assignment"
+            maxlength="100" required>
+
+          <label for="subject">Subject or course</label>
+          <input id="subject" name="subject" type="text"
+            placeholder="e.g. Programming" maxlength="80" required>
+
+          <label for="dueDate">Due date</label>
+          <input id="dueDate" name="dueDate" type="date" required>
+
+          <label for="priority">Priority</label>
+          <select id="priority" name="priority" required>
+            <option value="Low">Low priority</option>
+            <option value="Medium" selected>Medium priority</option>
+            <option value="High">High priority</option>
+          </select>
+
+          <p id="formError" class="form-error" role="alert"></p>
+          <button class="primary-button" type="submit">＋ Add assignment</button>
+        </form>
+        <p class="privacy-note">🔒 Your assignments are saved in this browser.</p>
+      </section>
+
+      <section class="panel assignments-panel">
+        <div class="panel-heading list-heading">
+          <div>
+            <p class="eyebrow">YOUR WORKLOAD</p>
+            <h2>My assignments</h2>
+          </div>
+          <label class="filter-label" for="statusFilter">
+            <span class="sr-only">Filter assignments</span>
+            <select id="statusFilter">
+              <option value="All">All tasks</option>
+              <option value="Pending">Pending</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="progress-section">
+          <div class="progress-label">
+            <span>Overall progress</span>
+            <strong id="progressText">0%</strong>
+          </div>
+          <div class="progress-track">
+            <div id="progressBar" class="progress-bar"></div>
+          </div>
+        </div>
+
+        <div id="assignmentList" class="assignment-list" aria-live="polite"></div>
+      </section>
+    </section>
+
+    <footer>
+      <p>Made for students, one task at a time. <span>✦</span></p>
+      <p>StudyBuddy · Student Study Planner</p>
+    </footer>
+  </main>
+</body>
+</html>
